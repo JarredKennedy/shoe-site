@@ -1,0 +1,348 @@
+:root {
+    --primary-trim: #CFCFCF;
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #2A2A2A;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+div.wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+@media screen and (max-height: 550px) {
+    div.wrapper {
+        height: auto;
+    }
+}
+
+aside {
+    box-sizing: border-box;
+    flex: 0 0 300px;
+    max-width: 300px;
+    padding: 20px;
+    border: 0px solid var(--primary-trim);
+    border-right-width: 1px;
+}
+
+main {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    padding: 0.5em 1em;
+}
+
+div.content {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+a[href] {
+    color: blue;
+}
+
+a[href]:visited {
+    color: purple;
+}
+
+a[href]:active {
+    color: darkblue;
+}
+
+.logo-container {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+ul.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.link-list li {
+    margin: 4px 0px;
+}
+
+ul.link-list.horizontal {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+ul.link-list.horizontal li {
+    margin: 0;
+}
+
+a.icon-link::before, span.icon {
+    display: inline-block;
+    vertical-align: top;
+    height: 1.2em;
+    width: 1.2em;
+}
+
+a.icon-link.login::before {
+    content: url('../img/icon-login.svg');
+}
+
+a.icon-link.wishlist::before {
+    content: url('../img/icon-wishlist.svg');
+}
+
+a.icon-link.feedback::before {
+    content: url('../img/icon-feedback.svg');
+}
+
+span.icon.facebook {
+    content: url('../img/icon-facebook.svg');
+}
+
+span.icon.twitter {
+    content: url('../img/icon-twitter.svg');
+}
+
+span.icon.instagram {
+    content: url('../img/icon-instagram.svg');
+}
+
+aside nav {
+    margin: 20px 0px;
+}
+
+aside ul.link-list li {
+    font-size: 20px;
+}
+
+nav.feature-links ul.link-list.horizontal {
+    justify-content: space-evenly;
+}
+
+nav.main-links {
+    margin: 30px 0px;
+}
+
+nav.main-links ul.link-list li {
+    margin: 8px 0px;
+}
+
+nav.main-links ul.link-list li.current {
+    font-weight: bold;
+}
+
+nav.main-links ul.link-list li.current::before {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    content: url('../img/icon-chevron-right.svg');
+    vertical-align: bottom;
+}
+
+form.search-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    column-gap: 4px;
+}
+
+form.search-form .search-field {
+    max-width: 12em;
+}
+
+form.search-form input {
+    font-size: 18px;
+}
+
+form.search-form .search-field input[type="search"] {
+    display: inline-block;
+    max-width: 100%;
+}
+
+footer {
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: max(10px, 2vw);
+    font-size: 0.9rem;
+    border: 0px solid var(--primary-trim);
+    border-top-width: 1px;
+}
+
+div.social-links a {
+    text-decoration: none;
+    margin: 0px 0.25em;
+}
+
+div.social-links span.icon {
+    font-size: 1.4em;
+    width: auto;
+}
+
+span.currency {
+    font-family: monospace, sans-serif;
+    color: #666666;
+    font-weight: normal;
+}
+
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    gap: 1.5em;
+    justify-content: space-evenly;
+}
+
+.catalogue div.product {
+    --border-radius: 5px;
+
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 5px;
+    border: 1px solid var(--primary-trim);
+}
+
+.catalogue div.product.new::before {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: darkgreen;
+    color: white;
+    font-size: 1em;
+    padding: 0.5em;
+    content: "NEW";
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.catalogue div.product figure {
+    margin: 0;
+    text-align: center;
+}
+
+.catalogue div.product > h3 {
+    margin: 1rem;
+    font-size: 1.5em;
+}
+
+.catalogue div.product > h3 span.currency {
+    font-size: 0.8em;
+    float: right;
+}
+
+.catalogue div.product.category {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.catalogue div.product.category > h3 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.catalogue div.product.category.fem {
+    background-color: rgba(200, 0, 0, 0.1);
+}
+
+.catalogue div.product.category.masc {
+    background-color: rgba(0, 0, 200, 0.1);
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --sidebar-footer-border: 0px;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    div.wrapper {
+        flex-direction: column;
+    }
+
+    aside {
+        padding: 5px 20px;
+        max-width: none;
+        border-right-width: 0px;
+    }
+
+    .logo-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    aside nav, nav.main-links {
+        margin: 8px auto;
+        max-width: 400px;
+    }
+
+    aside ul.link-list, aside ul.link-list.horizontal {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        column-gap: 0;
+    }
+
+    aside ul.link-list li {
+        flex: 0 0 50%;
+        text-align: center;
+    }
+
+    div.content > h1 {
+        margin: 0;
+        text-align: center;
+    }
+
+    footer {
+        flex-direction: column-reverse;
+        row-gap: 1em;
+        border-top-width: 0px;
+        font-size: 1em;
+    }
+
+    .catalogue {
+        grid-template-columns: min(90vw, 400px);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .catalogue div.product figure img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+    }
+}
