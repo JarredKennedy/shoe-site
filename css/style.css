@@ -102,6 +102,8 @@ a.icon-link.wishlist::before {
 
 a.icon-link.feedback::before {
     content: url('../img/icon-feedback.svg');
+    vertical-align: middle;
+    margin-right: 2px;
 }
 
 span.icon.facebook {
