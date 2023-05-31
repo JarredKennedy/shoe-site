@@ -45,7 +45,7 @@ const shoes = [
         price: 79,
         sizes: [6, 7, 8, 9, 10, 11],
         gender: true,
-        copy: 'gary-copy.html',
+        copy: 'shoes/gary-copy.html',
         details: {
             "Product Code": "30213",
             "Sole Material": "Rubber",
@@ -54,6 +54,70 @@ const shoes = [
             "Upper Material": "Leather"
         },
         output: 'product-gary'
+    },
+    {
+        name: "Work and Walk",
+        colors: ["chestnut"],
+        price: 85,
+        sizes: [6, 7, 8, 9, 10, 11],
+        gender: true,
+        copy: 'shoes/work-and-walk-copy.html',
+        details: {
+            "Product Code": "30144",
+            "Sole Material": "Rubber",
+            "Sock Material": "Pigskin",
+            "Lining Material": "Mesh",
+            "Upper Material": "Leather"
+        },
+        output: 'product-work-and-walk'
+    },
+    {
+        name: "Sally",
+        colors: ["black", "tan"],
+        price: 75,
+        sizes: [6, 7, 8, 9, 10, 11],
+        gender: false,
+        copy: 'shoes/sally-copy.html',
+        details: {
+            "Product Code": "301818",
+            "Sole Material": "Phylon rubber",
+            "Sock Material": "Pigskin",
+            "Lining Material": "Leather/synthetic",
+            "Upper Material": "Leather"
+        },
+        output: 'product-sally'
+    },
+    {
+        name: "Heavenly",
+        colors: ["black"],
+        price: 90,
+        sizes: [6, 7, 8, 9, 10, 11],
+        gender: false,
+        copy: 'shoes/heavenly-copy.html',
+        details: {
+            "Product Code": "21960",
+            "Sole Material": "Rubber",
+            "Sock Material": "Pigskin",
+            "Lining Material": "Unlined",
+            "Upper Material": "Leather"
+        },
+        output: 'product-heavenly'
+    },
+    {
+        name: "Clancy",
+        colors: ["blue"],
+        price: 59,
+        sizes: [6, 7, 8, 9, 10, 11],
+        gender: false,
+        copy: 'shoes/clancy-copy.html',
+        details: {
+            "Product Code": "30182",
+            "Sole Material": "Rubber",
+            "Sock Material": "Pigskin",
+            "Lining Material": "Unlined",
+            "Upper Material": "Leather"
+        },
+        output: 'product-clancy'
     }
 ];
 
@@ -119,6 +183,8 @@ shoes.forEach(shoe => {
 
         const copy = readFileSync(shoe.copy).toString();
         shoeContent = replaceWithIndent(shoeContent, '%COPY%', copy);
+
+        shoeContent = replaceWithIndent(shoeContent, '%PRICE%', shoe.price.toFixed(2));
 
         let detailsTable = '<table>\n';
         Object.keys(shoe.details).filter(shoe.details.hasOwnProperty.bind(shoe.details)).forEach(detail => {

@@ -28,12 +28,6 @@ div.wrapper {
     column-gap: 10px;
 }
 
-@media screen and (max-height: 550px) {
-    div.wrapper {
-        height: auto;
-    }
-}
-
 aside {
     box-sizing: border-box;
     flex: 0 0 300px;
@@ -93,7 +87,7 @@ ul.link-list.horizontal li {
 
 a.icon-link::before, span.icon {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: bottom;
     height: 1.2em;
     width: 1.2em;
 }
@@ -270,6 +264,68 @@ span.currency {
 
 .catalogue div.product.category.masc {
     background-color: rgba(0, 0, 200, 0.1);
+}
+
+.product-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: max(2em, 3vw);
+}
+
+.product-overview .product-gallery figure {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 1em;
+    border: 1px solid var(--primary-trim);
+}
+
+.product-overview .product-purchase .price {
+    font-size: 1.8em;
+    margin: 1em 0;
+}
+
+.product-overview .product-purchase form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1em;
+}
+
+.product-overview .product-purchase form .field > label {
+    display: block;
+}
+
+.product-overview .product-purchase form select,
+.product-overview .product-purchase form button {
+    font-size: 1.8em;
+}
+
+.product-overview .product-purchase form a {
+    font-size: 1.5em;
+}
+
+.product-details {
+    margin: 30px 0px;
+}
+
+.product-details > h3 {
+    margin: 0 0 5px;
+}
+
+.product-details table {
+    --table-border: 1px solid #666666;
+    border: var(--table-border);
+    border-collapse: collapse;
+    min-width: 300px;
+}
+
+.product-details table td {
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: var(--table-border);
 }
 
 @media screen and (min-width: 769px) {

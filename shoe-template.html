@@ -12,6 +12,11 @@
 
 		<div class="product-purchase">
 			
+			%COPY%
+
+			<div class="price">
+				<span class="currency">&dollar;%PRICE%</span>
+			</div>
 
 			<form>
 				<div class="field">
@@ -20,17 +25,18 @@
 				</div>
 
 				<button>Add to Cart</button>
+
+				<a href="#add-wishlist" class="icon-link wishlist">Add to wishlist</a>
 			</form>
 
-			%COPY%
+			<div class="product-details">
+				<h3>Materials and Details</h3>
+		
+				%DETAILS%
+			</div>
+
 		</div>
 
-	</div>
-
-	<div class="product-details">
-		<h3>Materials and Details</h3>
-
-		%DETAILS%
 	</div>
 
 </section>
