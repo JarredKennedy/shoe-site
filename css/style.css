@@ -195,6 +195,10 @@ div.content.index p {
     margin-bottom: 2em;
 }
 
+div.content.product section > h2 {
+    margin-bottom: 1em;
+}
+
 footer {
     box-sizing: border-box;
     padding: 10px;
@@ -225,6 +229,7 @@ span.currency {
 }
 
 .catalogue {
+    margin: 1em 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
     gap: 1.5em;
