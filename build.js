@@ -17,11 +17,6 @@ const files = [
         output: "services"
     },
     {
-        name: "About Us",
-        source: "about.html",
-        output: "about-us"
-    },
-    {
         name: "Contact Us",
         source: "contact.html",
         output: "contact-us"
@@ -121,7 +116,7 @@ const shoes = [
     }
 ];
 
-const navlinks = ['index', 'products', 'services', 'about-us', 'contact-us'];
+const navlinks = ['index', 'products', 'services', 'contact-us'];
 const template = readFileSync("./template.html").toString();
 
 function replaceWithIndent(content, find, replace) {
@@ -153,6 +148,7 @@ files.filter(file => file.source).forEach(file => {
     let content = replaceWithIndent(template, '%LINKS%', links);
     content = replaceWithIndent(content, '%CONTENT%', readFileSync(file.source).toString());
     content = content.replaceAll('%PAGENAME%', file.name);
+    content = content.replaceAll('%SLUG%', file.output);
 
     writeFileSync(`../website/${file.output}.html`, content);
 });
@@ -196,6 +192,7 @@ shoes.forEach(shoe => {
 
         let content = replaceWithIndent(baseTemplate, '%CONTENT%', shoeContent);
         content = content.replaceAll('%PAGENAME%', fullName);
+        content = content.replaceAll('%SLUG%', 'product');
 
         writeFileSync(`../website/${slug}.html`, content);
     });
