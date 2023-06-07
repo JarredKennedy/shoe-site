@@ -15,7 +15,7 @@ const files = [
     },
     {
         name: "Services",
-        source: null,
+        source: "services.html",
         output: "services",
         menu: ['index', 'services']
     },

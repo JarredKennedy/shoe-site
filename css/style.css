@@ -259,6 +259,10 @@ div.content ul.no-margin {
     margin: 0;
 }
 
+div.content.services p {
+    margin: 1em 0;
+}
+
 footer {
     box-sizing: border-box;
     padding: 10px;
