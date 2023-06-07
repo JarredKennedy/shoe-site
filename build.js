@@ -165,7 +165,9 @@ files.filter(file => file.source).forEach(file => {
 
     let breadcrumb = '';
     if (file.menu.length > 0) {
-        breadcrumb = '\n<nav class="breadcrumb">\n\t<ul>\n';
+        breadcrumb = '\n<nav class="breadcrumb">\n';
+        breadcrumb += '\t<a href="./' + file.menu[file.menu.length - 2] + '.html" class="mobile-only">Back</a>\n';
+        breadcrumb += '\t<ul class="desktop-only">\n';
         breadcrumb += files
             .filter(page => file.menu.indexOf(page.output) >= 0)
             .reduce((content, page) => {
@@ -248,7 +250,9 @@ shoes.forEach(shoe => {
         let gender = shoe.gender ? 'men' : 'women';
         let genderName = shoe.gender ? 'Men' : 'Women';
 
-        let breadcrumb = '\n<nav class="breadcrumb">\n\t<ul>\n';
+        let breadcrumb = '\n<nav class="breadcrumb">\n';
+        breadcrumb += '\t<a href="./products-' + gender + '.html" class="mobile-only">Back</a>\n';
+        breadcrumb += '\t<ul class="desktop-only">\n';
         breadcrumb += '\t\t<li>\n\t\t\t<a href="./index.html">Home</a>\n\t\t</li>\n';
         breadcrumb += '\t\t<li>\n\t\t\t<a href="./products.html">Products</a>\n\t\t</li>\n';
         breadcrumb += '\t\t<li>\n\t\t\t<a href="./products-' + gender + '.html">' + genderName + '\'s Shoes</a>\n\t\t</li>\n';

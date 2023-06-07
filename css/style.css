@@ -59,6 +59,7 @@ div.content {
 
 nav.breadcrumb {
     padding: 0.5em 0;
+    font-size: 1.25em;
 }
 
 nav.breadcrumb ul {
@@ -75,6 +76,8 @@ nav.breadcrumb ul {
 nav.breadcrumb ul li {
     padding: 0;
     margin: 0;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 
 nav.breadcrumb ul li::after {
@@ -343,6 +346,10 @@ span.currency {
     border: 1px solid var(--primary-trim);
 }
 
+.product-categories .category figure {
+    text-align: center;
+}
+
 .product-categories .category > h3 {
     display: block;
     position: absolute;
@@ -364,12 +371,17 @@ span.currency {
     gap: max(2em, 3vw);
 }
 
+.product-overview > * {
+    flex: 1 1 auto;
+}
+
 .product-overview .product-gallery figure {
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
     padding: 1em;
     border: 1px solid var(--primary-trim);
+    text-align: center;
 }
 
 .product-overview .product-gallery .product-colors {
@@ -538,6 +550,18 @@ div.content.contact-us div.details ul li {
         text-align: center;
     }
 
+    nav.main-links ul.link-list li {
+        margin: 0.25em 0;
+    }
+
+    nav.feature-links {
+        margin: 20px auto 0.25em;
+    }
+
+    nav.feature-links ul.link-list li {
+        font-size: 24px;
+    }
+
     div.content > h1 {
         margin: 0;
         text-align: center;
@@ -554,12 +578,76 @@ div.content.contact-us div.details ul li {
         grid-template-columns: min(90vw, 400px);
         justify-content: center;
     }
-}
 
-@media screen and (max-width: 450px) {
-    .catalogue div.product figure img {
+    .product-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-categories .category {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    div.content.product .product-overview .product-gallery,
+    div.content.product .product-overview .product-gallery figure {
+        width: 100%;
+    }
+
+    .catalogue div.product figure img,
+    .product-categories div.category figure img,
+    div.content.product .product-overview .product-gallery figure img {
         width: 100%;
         height: auto;
         aspect-ratio: 4/3;
+    }
+
+    div.two-column {
+        flex-direction: column;
+    }
+
+    form.common-form {
+        width: 100%;
+    }
+
+    div.content.product .product-overview {
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    nav.mobile-pre-footer {
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    form.search-form {
+        justify-content: center;
+        margin: 1em 0;
+    }
+
+    form.search-form .search-field {
+        flex: 1 1 auto;
+        max-width: unset;
+    }
+
+    form.search-form .search-field label {
+        display: block;
+        text-align: left;
+    }
+
+    form.search-form .search-field input {
+        width: 100%;
+    }
+
+    nav.mobile-pre-footer ul li {
+        font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .product-categories {
+        flex-wrap: wrap;
     }
 }
