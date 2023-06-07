@@ -48,6 +48,12 @@ const files = [
         source: "products-men.html",
         output: "products-men",
         menu: ['index', 'products', 'products-men']
+    },
+    {
+        name: "Delivery Policy",
+        source: "delivery.html",
+        output: "delivery-policy",
+        menu: ['index', 'delivery-policy']
     }
 ];
 

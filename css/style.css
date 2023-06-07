@@ -251,6 +251,14 @@ div.content.about-us p {
     margin: 5px 0 1em;
 }
 
+div.content.delivery-policy div.shipping-method {
+    margin: 1em 0;
+}
+
+div.content.delivery-policy div.shipping-method ul {
+    margin: 0;
+}
+
 footer {
     box-sizing: border-box;
     padding: 10px;
