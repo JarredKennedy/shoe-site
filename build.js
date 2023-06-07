@@ -176,7 +176,28 @@ shoes.forEach(shoe => {
 
         let shoeContent = shoeTemplate.replaceAll('%NAME%', fullName);
         shoeContent = shoeContent.replaceAll('%MAINIMG%', `./img/${slug}.jpg`);
-        shoeContent = shoeContent.replaceAll('%COLORS%', '');
+
+        let colorList = '';
+        if (shoe.colors.length > 1) {
+            colorList = '<div class="product-colors">\n';
+            for (let i = 0; i < shoe.colors.length; i++) {
+                if (shoe.colors[i] == color) {
+                    continue;
+                }
+
+                const colorSlug = shoe.output + '-' + shoe.colors[i],
+                    colorName = `${shoe.name} (${shoe.colors[i].charAt(0).toUpperCase()}${shoe.colors[i].substring(1)})`;
+
+                colorList += '\t<div class="alternate">\n';
+                colorList += '\t\t<a href="./' + colorSlug + '.html">\n';
+                colorList += '\t\t\t<img src="./img/' + colorSlug + '.jpg" width="133" height="100" alt="' + colorName + ' shoe">\n';
+                colorList += '\t\t</a>\n';
+                colorList += '\t</div>\n'
+            }
+            colorList += '</div>';
+        }
+
+        shoeContent = replaceWithIndent(shoeContent, '%COLORS%', colorList);
 
         const sizeOptions = shoe.sizes.map(size => `<option value="${size}">US ${size}</option>`).join("\n\t");
         const sizes = `<select id="shoe-size">\n\t${sizeOptions}\n</select>`;

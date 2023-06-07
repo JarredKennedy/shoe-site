@@ -335,6 +335,17 @@ span.currency {
     border: 1px solid var(--primary-trim);
 }
 
+.product-overview .product-gallery .product-colors {
+    margin: 0.5em 0;
+}
+
+.product-overview .product-gallery .product-colors .alternate {
+    display: inline-block;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border: 1px solid var(--primary-trim);
+}
+
 .product-overview .product-purchase .price {
     font-size: 1.8em;
     margin: 1em 0;
