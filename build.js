@@ -22,6 +22,11 @@ const files = [
         output: "contact-us"
     },
     {
+        name: "Feedback",
+        source: "feedback.html",
+        output: "feedback"
+    },
+    {
         name: "Women's Shoes",
         source: "products-women.html",
         output: "products-women"

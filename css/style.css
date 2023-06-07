@@ -127,6 +127,18 @@ span.icon.instagram {
     content: url('../img/icon-instagram.svg');
 }
 
+span.icon.location {
+    content: url('../img/icon-location.svg');
+}
+
+span.icon.phone {
+    content: url('../img/icon-phone.svg');
+}
+
+span.icon.email {
+    content: url('../img/icon-email.svg');
+}
+
 aside nav {
     margin: 5vh 0px;
 }
@@ -275,25 +287,36 @@ span.currency {
     float: right;
 }
 
-.catalogue div.product.category {
+.product-categories {
+    margin-top: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 1em;
 }
 
-.catalogue div.product.category > h3 {
+.product-categories .category {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid var(--primary-trim);
+}
+
+.product-categories .category > h3 {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     font-size: 2em;
     text-align: center;
-}
-
-.catalogue div.product.category.fem {
-    background-color: rgba(200, 0, 0, 0.1);
-}
-
-.catalogue div.product.category.masc {
-    background-color: rgba(0, 0, 200, 0.1);
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 .product-overview {
@@ -356,6 +379,66 @@ span.currency {
     box-sizing: border-box;
     padding: 0.5em;
     border: var(--table-border);
+}
+
+div.two-column {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+div.two-column > * {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+}
+
+div.content.contact-us div.two-column {
+    box-sizing: border-box;
+    padding: 1em 0;
+}
+
+form.common-form .field {
+    margin: 1em 0;
+}
+
+form.common-form div.field.no-margin {
+    margin-top: 0;
+}
+
+form.common-form .field label {
+    display: block;
+    font-weight: bold;
+}
+
+form.common-form .field input[type="text"],
+form.common-form .field input[type="email"],
+form.common-form .field textarea,
+form.common-form .field select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5em;
+    max-width: 500px;
+    font-size: 1.25em;
+}
+
+form.common-form .field textarea {
+    height: 4em;
+}
+
+form.common-form .field input[type="submit"] {
+    font-size: 1.25em;
+}
+
+div.content.contact-us div.details ul {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    list-style: none;
+}
+
+div.content.contact-us div.details ul li {
+    margin: 0.5em 0;
 }
 
 @media screen and (min-width: 769px) {
