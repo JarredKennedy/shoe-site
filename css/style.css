@@ -379,7 +379,11 @@ span.currency {
     gap: max(2em, 3vw);
 }
 
-.product-overview > * {
+.product-overview .product-gallery {
+    flex: 0 1 auto;
+}
+
+.product-overview .product-purchase {
     flex: 1 1 auto;
 }
 
@@ -655,8 +659,9 @@ div.content.contact-us div.details ul li {
     }
 }
 
-@media screen and (max-width: 1500px) {
-    .product-categories {
+@media screen and (max-width: 1400px) {
+    .product-categories,
+    .product-overview {
         flex-wrap: wrap;
     }
 }
