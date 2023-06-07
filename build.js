@@ -54,6 +54,18 @@ const files = [
         source: "delivery.html",
         output: "delivery-policy",
         menu: ['index', 'delivery-policy']
+    },
+    {
+        name: "Returns Policy",
+        source: "returns.html",
+        output: "returns-policy",
+        menu: ['index', 'returns-policy']
+    },
+    {
+        name: "Exchange Policy",
+        source: "exchange.html",
+        output: "exchange-policy",
+        menu: ['index', 'exchange-policy']
     }
 ];
 

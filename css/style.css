@@ -251,11 +251,11 @@ div.content.about-us p {
     margin: 5px 0 1em;
 }
 
-div.content.delivery-policy div.shipping-method {
+div.content div.text-box {
     margin: 1em 0;
 }
 
-div.content.delivery-policy div.shipping-method ul {
+div.content ul.no-margin {
     margin: 0;
 }
 
