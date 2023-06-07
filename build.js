@@ -4,37 +4,50 @@ const files = [
     {
         name: "Home",
         source: "home.html",
-        output: "index"
+        output: "index",
+        menu: []
     },
     {
         name: "Products",
         source: 'products.html',
-        output: "products"
+        output: "products",
+        menu: ['index', 'products']
     },
     {
         name: "Services",
         source: null,
-        output: "services"
+        output: "services",
+        menu: ['index', 'services']
+    },
+    {
+        name: "About Us",
+        source: "about.html",
+        output: "about-us",
+        menu: ['index', 'about-us']
     },
     {
         name: "Contact Us",
         source: "contact.html",
-        output: "contact-us"
+        output: "contact-us",
+        menu: ['index', 'contact-us']
     },
     {
         name: "Feedback",
         source: "feedback.html",
-        output: "feedback"
+        output: "feedback",
+        menu: ['index', 'feedback']
     },
     {
         name: "Women's Shoes",
         source: "products-women.html",
-        output: "products-women"
+        output: "products-women",
+        menu: ['index', 'products', 'products-women']
     },
     {
         name: "Men's Shoes",
         source: "products-men.html",
-        output: "products-men"
+        output: "products-men",
+        menu: ['index', 'products', 'products-men']
     }
 ];
 
@@ -121,7 +134,7 @@ const shoes = [
     }
 ];
 
-const navlinks = ['index', 'products', 'services', 'contact-us'];
+const navlinks = ['index', 'products', 'services', 'about-us', 'contact-us'];
 const template = readFileSync("./template.html").toString();
 
 function replaceWithIndent(content, find, replace) {
@@ -150,7 +163,23 @@ files.filter(file => file.source).forEach(file => {
             return content + `<li>\n\t<a href="${url}">${page.name}</a>\n</li>\n`;
         }, "");
 
+    let breadcrumb = '';
+    if (file.menu.length > 0) {
+        breadcrumb = '\n<nav class="breadcrumb">\n\t<ul>\n';
+        breadcrumb += files
+            .filter(page => file.menu.indexOf(page.output) >= 0)
+            .reduce((content, page) => {
+                if (page.output == file.output) {
+                    return content + '\t\t<li>' + page.name + '</li>\n';
+                } else {
+                    return content + '\t\t<li>\n\t\t\t<a href="./' + page.output + '.html">' + page.name + '</a>\n\t\t</li>\n';
+                }
+            }, "");
+        breadcrumb += '\t</ul>\n</nav>\n';
+    }
+
     let content = replaceWithIndent(template, '%LINKS%', links);
+    content = replaceWithIndent(content, '%BREADCRUMB%', breadcrumb);
     content = replaceWithIndent(content, '%CONTENT%', readFileSync(file.source).toString());
     content = content.replaceAll('%PAGENAME%', file.name);
     content = content.replaceAll('%SLUG%', file.output);
@@ -216,7 +245,18 @@ shoes.forEach(shoe => {
 
         shoeContent = replaceWithIndent(shoeContent, '%DETAILS%', detailsTable);
 
-        let content = replaceWithIndent(baseTemplate, '%CONTENT%', shoeContent);
+        let gender = shoe.gender ? 'men' : 'women';
+        let genderName = shoe.gender ? 'Men' : 'Women';
+
+        let breadcrumb = '\n<nav class="breadcrumb">\n\t<ul>\n';
+        breadcrumb += '\t\t<li>\n\t\t\t<a href="./index.html">Home</a>\n\t\t</li>\n';
+        breadcrumb += '\t\t<li>\n\t\t\t<a href="./products.html">Products</a>\n\t\t</li>\n';
+        breadcrumb += '\t\t<li>\n\t\t\t<a href="./products-' + gender + '.html">' + genderName + '\'s Shoes</a>\n\t\t</li>\n';
+        breadcrumb += '\t\t<li>' + fullName + '</li>\n';
+        breadcrumb += '\t</ul>\n</nav>\n';
+
+        let content = replaceWithIndent(baseTemplate, '%BREADCRUMB%', breadcrumb);
+        content = replaceWithIndent(content, '%CONTENT%', shoeContent);
         content = content.replaceAll('%PAGENAME%', fullName);
         content = content.replaceAll('%SLUG%', 'product');
 

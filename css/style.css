@@ -57,6 +57,39 @@ div.content {
     margin: 0 auto;
 }
 
+nav.breadcrumb {
+    padding: 0.5em 0;
+}
+
+nav.breadcrumb ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.breadcrumb ul li {
+    padding: 0;
+    margin: 0;
+}
+
+nav.breadcrumb ul li::after {
+    display: inline-block;
+    vertical-align: bottom;
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 -0.25em;
+    content: url('../img/icon-chevron-right.svg');
+}
+
+nav.breadcrumb ul li:last-child:after {
+    content: '';
+}
+
 a[href] {
     color: blue;
 }
@@ -209,6 +242,10 @@ div.content.index p {
 
 div.content.product section > h2 {
     margin-bottom: 1em;
+}
+
+div.content.about-us p {
+    margin: 5px 0 1em;
 }
 
 footer {
